@@ -19,7 +19,7 @@ export default function RootLayout({
     <html lang="en" className={`${archivo.className} antialiased`}>
       <body>
         <Header />
-        <main>{children}</main>
+        {children}
         <Footer />
       </body>
     </html>
