@@ -3,9 +3,9 @@
 import { useState } from "react";
 import { fetchGames } from "@/services/gameService";
 import { Game, ApiResponse } from "@/types/game";
-import GamesList from "./GameListGrid";
+import GameGrid from "./GameGrid";
 import SeeMoreButton from "./SeeMoreButton";
-import GamesListSkeleton from "./GamesListSkeleton";
+import GameSkeleton from "./GameSkeleton";
 
 type GamesListProps = {
   initialData: ApiResponse;
@@ -39,8 +39,8 @@ export default function CatalogContent({ initialData }: GamesListProps) {
 
   return (
     <div>
-      <GamesList games={games} />
-      {loading && <GamesListSkeleton />}
+      <GameGrid games={games} />
+      {loading && <GameSkeleton />}
       <SeeMoreButton
         onLoadMore={handleLoadMore}
         loading={loading}

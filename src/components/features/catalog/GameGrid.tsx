@@ -4,7 +4,7 @@ type GameGridProps = {
   games: Game[];
 };
 
-export default function GamesList({ games }: GameGridProps) {
+export default function GameGrid({ games }: GameGridProps) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
       {games.map((game) => (
