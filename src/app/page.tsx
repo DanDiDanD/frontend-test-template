@@ -3,12 +3,19 @@ import Catalog from "@/components/features/catalog/Catalog";
 import GameSkeleton from "@/components/features/catalog/GameSkeleton";
 import MainContainer from "@/components/layout/MainContainer";
 
-export default function Home() {
+type HomeProps = {
+  searchParams?: {
+    genre?: string;
+  };
+};
+
+export default function Home({ searchParams }: HomeProps) {
+  const genre = searchParams?.genre || "";
   return (
     <MainContainer className="py-8 md:py-12">
       <h1 className="text-2xl md:text-4xl font-bold mb-8">Top Sellers</h1>
       <Suspense fallback={<GameSkeleton />}>
-        <Catalog />
+        <Catalog genre={genre} />
       </Suspense>
     </MainContainer>
   );
