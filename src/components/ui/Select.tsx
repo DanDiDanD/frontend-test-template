@@ -31,7 +31,7 @@ export default function Select({
   variant = "outline",
   color = "gray-medium",
   options,
-  placeholder = "Select an option",
+  placeholder = "",
   disabled,
   className = "",
   ...props

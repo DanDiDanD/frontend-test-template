@@ -7,6 +7,8 @@ type GameFilterProps = {
   availableFilters: string[];
 };
 
+const DEFAULT_OPTION = { value: "", label: "All" };
+
 export default function GameFilter({ availableFilters }: GameFilterProps) {
   const searchParams = useSearchParams();
   const pathname = usePathname();
@@ -23,16 +25,18 @@ export default function GameFilter({ availableFilters }: GameFilterProps) {
     replace(`${pathname}?${params.toString()}`);
   };
 
-  const genreOptions = availableFilters.map((genre) => ({
-    value: genre,
-    label: genre,
-  }));
+  const genreOptions = [
+    DEFAULT_OPTION,
+    ...availableFilters.map((genre) => ({
+      value: genre,
+      label: genre,
+    })),
+  ];
 
   return (
     <div className="flex flex-col md:flex-row gap-4 mb-6">
       <Select
         options={genreOptions}
-        placeholder="Select Genre"
         aria-label="Filter by game genre"
         variant="outline"
         onChange={handleGenreChange}
