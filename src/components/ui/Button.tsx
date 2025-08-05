@@ -1,7 +1,7 @@
 import { ButtonHTMLAttributes, ReactNode } from "react";
 
 type ButtonVariant = "solid" | "outline";
-type ButtonColor = "primary" | "gray-medium";
+type ButtonColor = "primary" | "gray-medium" | "danger";
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: ButtonVariant;
@@ -14,12 +14,15 @@ const buttonStyles = {
   solid: {
     primary: "bg-primary text-white hover:bg-primary/90",
     "gray-medium": "bg-gray-medium text-white hover:bg-gray-medium/90",
+    danger: "bg-red-600 text-white hover:bg-red-600/90",
   },
   outline: {
     primary:
       "border border-primary text-primary hover:bg-primary hover:text-white",
     "gray-medium":
       "border border-gray-medium text-gray-medium hover:bg-gray-medium hover:text-white",
+    danger:
+      "border border-red-600 text-red-600 hover:bg-red-600 hover:text-white",
   },
 };
 
