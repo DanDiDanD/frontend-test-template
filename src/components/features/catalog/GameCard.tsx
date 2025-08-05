@@ -66,7 +66,7 @@ export default function GameCard({ game }: GameCardProps) {
 
         <div className="mt-auto">
           <Button
-            color="gray-medium"
+            color={inCart ? "danger" : "gray-medium"}
             variant="outline"
             onClick={handleCartAction}
             className="md:w-full"
