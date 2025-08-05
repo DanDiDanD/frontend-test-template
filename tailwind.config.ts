@@ -13,6 +13,9 @@ const config: Config = {
           primary: "#ffffff",
           secondary: "#eeeeee",
         },
+        gray: {
+          medium: "#3B3B3B",
+        },
         primary: "#585660",
       },
       backgroundImage: {
