@@ -50,9 +50,10 @@ export default function GameCard({ game }: GameCardProps) {
 
         <div className="mt-auto">
           <Button
+            color="gray-medium"
             variant="outline"
             onClick={handleAddToCart}
-            className="w-full"
+            className="md:w-full"
             aria-label={`Add ${game.name} to shopping cart`}
           >
             ADD TO CART

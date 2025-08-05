@@ -4,7 +4,7 @@ import { useState } from "react";
 import { fetchGames } from "@/services/gameService";
 import { Game, ApiResponse } from "@/types/game";
 import GameGrid from "./GameGrid";
-import SeeMoreButton from "./SeeMoreButton";
+import Button from "@/components/ui/Button";
 import GameSkeleton from "./GameSkeleton";
 
 type GamesListProps = {
@@ -38,14 +38,14 @@ export default function CatalogContent({ initialData }: GamesListProps) {
   const canLoadMore = currentPage < totalPages;
 
   return (
-    <div>
+    <>
       <GameGrid games={games} />
       {loading && <GameSkeleton />}
-      <SeeMoreButton
-        onLoadMore={handleLoadMore}
-        loading={loading}
-        canLoadMore={canLoadMore}
-      />
-    </div>
+      {canLoadMore && (
+        <Button onClick={handleLoadMore} loading={loading}>
+          SEE MORE
+        </Button>
+      )}
+    </>
   );
 }
