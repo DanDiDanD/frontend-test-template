@@ -12,17 +12,23 @@ const DEFAULT_OPTION = { value: "", label: "All" };
 export default function GameFilter({ availableFilters }: GameFilterProps) {
   const searchParams = useSearchParams();
   const pathname = usePathname();
-  const { replace } = useRouter();
+  const { replace, refresh } = useRouter();
 
   const handleGenreChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const genre = event.target.value;
     const params = new URLSearchParams(searchParams.toString());
+
     if (genre) {
       params.set("genre", genre);
     } else {
       params.delete("genre");
     }
+
     replace(`${pathname}?${params.toString()}`);
+
+    if (!genre) {
+      refresh();
+    }
   };
 
   const genreOptions = [
