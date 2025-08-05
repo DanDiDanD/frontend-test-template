@@ -17,6 +17,9 @@ const config: Config = {
           medium: "#3B3B3B",
         },
         primary: "#585660",
+        icon: {
+          primary: "#8F8F8F",
+        },
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

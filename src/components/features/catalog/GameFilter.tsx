@@ -38,7 +38,7 @@ export default function GameFilter({ availableFilters }: GameFilterProps) {
       <Select
         options={genreOptions}
         aria-label="Filter by game genre"
-        variant="outline"
+        variant="ghost"
         onChange={handleGenreChange}
         value={searchParams.get("genre") || ""}
         color="gray-medium"
