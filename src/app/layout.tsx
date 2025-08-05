@@ -3,17 +3,7 @@ import "./globals.css";
 import Header from "@/components/ui/Header";
 import Footer from "@/components/ui/Footer";
 
-import localFont from "next/font/local";
-
-const areaNormal = localFont({
-  src: [
-    {
-      path: "./fonts/area-normal-bold.otf",
-      weight: "700",
-      style: "normal",
-    },
-  ],
-});
+import { archivo } from "./fonts";
 
 export const metadata: Metadata = {
   title: "Apply Digital Test",
@@ -26,7 +16,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${areaNormal.className} antialiased`}>
+    <html lang="en" className={`${archivo.className} antialiased`}>
       <body>
         <Header />
         <main>{children}</main>
