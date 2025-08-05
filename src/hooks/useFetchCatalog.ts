@@ -2,7 +2,7 @@ import { useState } from "react";
 import { fetchGames } from "@/services/gameService";
 import { Game, ApiResponse } from "@/types/game";
 
-export function useFetchCatalog(initialData: ApiResponse) {
+export function useFetchCatalog(initialData: ApiResponse, genre?: string) {
   const [games, setGames] = useState<Game[]>(initialData.games);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages] = useState(initialData.totalPages);
@@ -14,7 +14,7 @@ export function useFetchCatalog(initialData: ApiResponse) {
     setLoading(true);
     try {
       const nextPage = currentPage + 1;
-      const data = await fetchGames({ page: nextPage });
+      const data = await fetchGames({ page: nextPage, genre });
 
       setGames((prev) => [...prev, ...data.games]);
       setCurrentPage(nextPage);

@@ -6,7 +6,7 @@ type CatalogProps = {
 };
 
 export default async function Catalog({ genre }: CatalogProps) {
-  const initialData = await fetchGames({ page: 1, genre });
+  const initialData = await fetchGames({ genre });
 
-  return <CatalogContent initialData={initialData} />;
+  return <CatalogContent key={genre} initialData={initialData} />;
 }
