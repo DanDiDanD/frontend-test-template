@@ -1,12 +1,16 @@
-import { fetchGames } from "@/services/gameService";
+import { Suspense } from "react";
+import Catalog from "@/components/catalog/Catalog";
+import GamesListSkeleton from "@/components/catalog/GamesListSkeleton";
 
-export default async function Home() {
-  const data = await fetchGames();
-
+export default function Home() {
   return (
-    <main className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-8">Game Catalog</h1>
-      <pre>{JSON.stringify(data, null, 2)}</pre>
+    <main className="px-6 py-8 md:py-12">
+      <div className="container mx-auto">
+        <h1 className="text-2xl md:text-4xl font-bold mb-8">Game Catalog</h1>
+        <Suspense fallback={<GamesListSkeleton />}>
+          <Catalog />
+        </Suspense>
+      </div>
     </main>
   );
 }
