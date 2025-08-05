@@ -34,15 +34,26 @@ export default function GameFilter({ availableFilters }: GameFilterProps) {
   ];
 
   return (
-    <div className="flex flex-col md:flex-row gap-4 mb-6">
-      <Select
-        options={genreOptions}
-        aria-label="Filter by game genre"
-        variant="ghost"
-        onChange={handleGenreChange}
-        value={searchParams.get("genre") || ""}
-        color="gray-medium"
-      />
+    <div className="flex flex-col md:flex-row md:justify-end gap-4 mb-6">
+      <div className="flex items-center">
+        <label
+          htmlFor="genre-filter"
+          className="text-xl font-bold text-gray-medium"
+        >
+          Genre
+        </label>
+        <div className="mx-6 text-gray-medium" aria-hidden="true">
+          |
+        </div>
+        <Select
+          id="genre-filter"
+          options={genreOptions}
+          variant="ghost"
+          onChange={handleGenreChange}
+          value={searchParams.get("genre") || ""}
+          color="gray-medium"
+        />
+      </div>
     </div>
   );
 }
