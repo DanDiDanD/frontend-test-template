@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import { CartProvider } from "@/contexts/CartContext";
 
 import { archivo } from "./fonts";
 
@@ -18,9 +19,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${archivo.className} antialiased`}>
       <body>
-        <Header />
-        {children}
-        <Footer />
+        <CartProvider>
+          <Header />
+          {children}
+          <Footer />
+        </CartProvider>
       </body>
     </html>
   );

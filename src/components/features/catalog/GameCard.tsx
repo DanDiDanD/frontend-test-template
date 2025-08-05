@@ -2,13 +2,29 @@ import Image from "next/image";
 import { Game } from "@/types/game";
 import Card from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
+import { useCart } from "@/contexts/CartContext";
 
 type GameCardProps = {
   game: Game;
 };
 
 export default function GameCard({ game }: GameCardProps) {
-  const handleAddToCart = () => null;
+  const { addToCart, removeFromCart, isInCart, isLoaded } = useCart();
+  const inCart = isInCart(game.id);
+
+  const handleCartAction = () => {
+    if (inCart) {
+      removeFromCart(game.id);
+    } else {
+      addToCart(game);
+    }
+  };
+
+  const buttonLabel = !isLoaded
+    ? "LOADING..."
+    : inCart
+      ? "REMOVE"
+      : "ADD TO CART";
 
   return (
     <Card
@@ -52,11 +68,18 @@ export default function GameCard({ game }: GameCardProps) {
           <Button
             color="gray-medium"
             variant="outline"
-            onClick={handleAddToCart}
+            onClick={handleCartAction}
             className="md:w-full"
-            aria-label={`Add ${game.name} to shopping cart`}
+            disabled={!isLoaded}
+            aria-label={
+              !isLoaded
+                ? "Loading game status..."
+                : inCart
+                  ? `Remove ${game.name} from shopping cart`
+                  : `Add ${game.name} to shopping cart`
+            }
           >
-            ADD TO CART
+            {buttonLabel}
           </Button>
         </div>
       </div>
