@@ -1,0 +1,23 @@
+import { Game } from "@/types/game";
+
+export const testGames: Game[] = [
+  {
+    id: "1",
+    genre: "Action",
+    image: "/game-images/cyberpunk2077.jpeg",
+    name: "Cyberpunk 2077",
+    description: "An open-world, action-adventure story set in Night City.",
+    price: 59.99,
+    isNew: true,
+  },
+  {
+    id: "2",
+    genre: "RPG",
+    image: "/game-images/thewitcher3.jpeg",
+    name: "The Witcher 3: Wild Hunt",
+    description:
+      "A story-driven, next-generation open world role-playing game.",
+    price: 39.99,
+    isNew: false,
+  },
+];
