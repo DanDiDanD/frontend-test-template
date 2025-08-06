@@ -8,10 +8,10 @@ export default function ItemCounts() {
 
   return (
     <>
-      <h2 className="text-xl md:text-2xl font-normal text-gray-medium mb-8 md:mb-12">
+      <h2 className="text-xl md:text-2xl leading-6 md:leading-7 font-normal text-gray-medium mb-8 md:mb-12">
         {!isLoaded ? (
           <span
-            className="inline-block h-[1.5rem] md:h-[1.75rem] w-20 animate-pulse bg-gray-200 rounded align-middle"
+            className="inline-block h-5 md:h-6 w-20 animate-pulse bg-gray-200 rounded align-middle"
             aria-label="Loading cart items"
             role="status"
           >

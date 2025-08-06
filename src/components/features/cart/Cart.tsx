@@ -1,3 +1,6 @@
+import Button from "@/components/ui/Button";
+import OrderSummary from "./OrderSummary";
+
 export default function Cart() {
   return (
     <div className="flex flex-col md:flex-row gap-8 md:gap-20">
@@ -5,7 +8,10 @@ export default function Cart() {
         <h3>Cart Item List</h3>
       </div>
       <div className="w-full md:w-3/7">
-        <h3>Order Summary</h3>
+        <OrderSummary />
+        <Button className="md:w-full" color="primary">
+          Checkout
+        </Button>
       </div>
     </div>
   );
