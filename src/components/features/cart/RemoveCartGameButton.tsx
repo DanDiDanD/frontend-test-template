@@ -18,9 +18,9 @@ export default function RemoveCartGameButton({
 
   return (
     <Button
-      color="icon-primary"
+      color="icon"
       variant="ghost"
-      className="!p-0 text-icon-primary border-none hover:bg-red-50"
+      className="!p-0 text-icon border-none hover:bg-red-50"
       aria-label={`Remove ${game.name} from cart`}
       onClick={handleRemove}
     >

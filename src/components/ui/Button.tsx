@@ -1,7 +1,7 @@
 import { ButtonHTMLAttributes, ReactNode } from "react";
 
 type ButtonVariant = "solid" | "outline" | "ghost";
-type ButtonColor = "primary" | "gray-medium" | "danger" | "icon-primary";
+type ButtonColor = "primary" | "gray-medium" | "danger" | "icon";
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: ButtonVariant;
@@ -16,8 +16,7 @@ const buttonStyles = {
     "gray-medium":
       "bg-gray-medium text-white hover:bg-gray-medium/90 focus:ring-gray-medium",
     danger: "bg-red-600 text-white hover:bg-red-600/90 focus:ring-red-600",
-    "icon-primary":
-      "bg-icon-primary text-white hover:bg-icon-primary/90 focus:ring-icon-primary",
+    icon: "bg-icon text-white hover:bg-icon/90 focus:ring-icon",
   },
   outline: {
     primary:
@@ -26,16 +25,14 @@ const buttonStyles = {
       "border border-gray-medium text-gray-medium hover:bg-gray-medium hover:text-white focus:ring-gray-medium",
     danger:
       "border border-red-600 text-red-600 hover:bg-red-600 hover:text-white focus:ring-red-600",
-    "icon-primary":
-      "border border-icon-primary text-icon-primary hover:bg-icon-primary hover:text-white focus:ring-icon-primary",
+    icon: "border border-icon text-icon hover:bg-icon hover:text-white focus:ring-icon",
   },
   ghost: {
     primary: "text-primary hover:bg-primary/10 focus:ring-primary",
     "gray-medium":
       "text-gray-medium hover:bg-gray-medium/10 focus:ring-gray-medium",
     danger: "text-red-600 hover:bg-red-600/10 focus:ring-red-600",
-    "icon-primary":
-      "text-icon-primary hover:bg-icon-primary/10 focus:ring-icon-primary",
+    icon: "text-icon hover:bg-icon/10 focus:ring-icon",
   },
 };
 
