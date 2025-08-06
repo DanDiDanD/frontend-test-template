@@ -46,9 +46,20 @@ export default function Button({
     <button
       className={combinedClasses}
       disabled={disabled || loading}
+      aria-busy={loading}
+      aria-describedby={loading ? "loading-text" : undefined}
       {...props}
     >
-      {loading ? "Loading..." : children}
+      {loading ? (
+        <>
+          <span aria-hidden="true">Loading...</span>
+          <span id="loading-text" className="sr-only">
+            Please wait, content is loading
+          </span>
+        </>
+      ) : (
+        children
+      )}
     </button>
   );
 }
