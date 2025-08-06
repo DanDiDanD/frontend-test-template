@@ -1,4 +1,5 @@
 import { ApiResponse } from "@/types/game";
+import { apiUrl, API_ENDPOINTS } from "@/config/api";
 
 type FetchGamesParams = {
   genre?: string;
@@ -18,9 +19,7 @@ export async function fetchGames(
     searchParams.append("genre", genre);
   }
 
-  const response = await fetch(
-    `http://localhost:3000/api/games?${searchParams.toString()}`
-  );
+  const response = await fetch(apiUrl(API_ENDPOINTS.GAMES, searchParams));
 
   if (!response.ok) {
     throw new Error("Failed to fetch games");
