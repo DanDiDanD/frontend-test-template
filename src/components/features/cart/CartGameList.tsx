@@ -21,10 +21,13 @@ export default function CartGameList() {
   }
 
   return (
-    <div className="w-full md:w-4/7 flex flex-col gap-4">
+    <section
+      className="w-full md:w-4/7 flex flex-col gap-4"
+      aria-label="Cart items"
+    >
       {cartItems.map((game) => (
         <CartGame key={game.id} game={game} />
       ))}
-    </div>
+    </section>
   );
 }

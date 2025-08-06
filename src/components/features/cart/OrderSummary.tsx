@@ -20,13 +20,13 @@ export default function OrderSummary() {
   }
 
   return (
-    <div className="w-full md:w-3/7">
-      <Card
-        className="rounded-lg !px-4 md:!px-6 mb-10 md:mb-8"
-        aria-label="Order summary"
-      >
+    <section className="w-full md:w-3/7" aria-labelledby="order-summary-title">
+      <Card className="rounded-lg !px-4 md:!px-6 mb-10 md:mb-8">
         <div className="space-y-3 pb-6 md:pb-8">
-          <h3 className="text-xl md:text-2xl md:leading-7 font-bold text-gray-medium leading-6">
+          <h3
+            id="order-summary-title"
+            className="text-xl md:text-2xl md:leading-7 font-bold text-gray-medium leading-6"
+          >
             Order Summary
           </h3>
           <div className="text-lg font-normal text-gray-medium leading-6">
@@ -60,6 +60,6 @@ export default function OrderSummary() {
       <Button className="md:w-full" color="primary">
         Checkout
       </Button>
-    </div>
+    </section>
   );
 }
