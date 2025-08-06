@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import Catalog from "@/components/features/catalog/Catalog";
-import GameSkeleton from "@/components/features/catalog/GameSkeleton";
+import CatalogSkeleton from "@/components/features/catalog/CatalogSkeleton";
 import MainContainer from "@/components/layout/MainContainer";
 
 type HomeProps = {
@@ -14,7 +14,7 @@ export default function Home({ searchParams }: HomeProps) {
   return (
     <MainContainer className="py-8 md:py-12">
       <h1 className="text-2xl md:text-4xl font-bold mb-8">Top Sellers</h1>
-      <Suspense fallback={<GameSkeleton />}>
+      <Suspense fallback={<CatalogSkeleton />}>
         <Catalog genre={genre} />
       </Suspense>
     </MainContainer>

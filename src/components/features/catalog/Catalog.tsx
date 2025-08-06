@@ -1,5 +1,6 @@
 import { fetchGames } from "@/services/gameService";
 import CatalogContent from "./CatalogContent";
+import CatalogFilter from "./CatalogFilter";
 
 type CatalogProps = {
   genre?: string;
@@ -8,5 +9,10 @@ type CatalogProps = {
 export default async function Catalog({ genre }: CatalogProps) {
   const initialData = await fetchGames({ genre });
 
-  return <CatalogContent key={genre} initialData={initialData} />;
+  return (
+    <>
+      <CatalogFilter availableFilters={initialData.availableFilters} />
+      <CatalogContent key={genre} initialData={initialData} />
+    </>
+  );
 }
