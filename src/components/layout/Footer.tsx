@@ -3,7 +3,7 @@ import Logo from "../icons/Logo";
 export default function Footer() {
   return (
     <footer
-      className="bg-neutral-700 text-white py-10"
+      className="bg-neutral-700 text-white py-10 mt-auto"
       role="contentinfo"
       aria-label="Site footer"
     >

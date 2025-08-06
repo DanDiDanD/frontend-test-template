@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${archivo.className} antialiased`}>
-      <body>
+      <body className="min-h-screen flex flex-col">
         <CartProvider>
           <Header />
           {children}
