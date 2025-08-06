@@ -5,8 +5,9 @@ import { useFetchCatalog } from "@/hooks/useFetchCatalog";
 import GameGrid from "./GameGrid";
 import Button from "@/components/ui/Button";
 import GameSkeleton from "./GameSkeleton";
-import GameFilter from "./GameFilter";
+import LoadingAnnouncer from "@/components/ui/LoadingAnnouncer";
 import { useSearchParams } from "next/navigation";
+import GameFilter from "./GameFilter";
 
 type GamesListProps = {
   initialData: ApiResponse;
@@ -21,11 +22,14 @@ export default function CatalogContent({ initialData }: GamesListProps) {
     genre
   );
 
-  const availableFilters = initialData.availableFilters;
-
   return (
     <>
-      <GameFilter availableFilters={availableFilters} />
+      <LoadingAnnouncer
+        isLoading={loading}
+        loadingMessage="Loading more games..."
+        completedMessage={`${games.length} games loaded`}
+      />
+      <GameFilter availableFilters={initialData.availableFilters} />
       <GameGrid games={games} />
       {loading && <GameSkeleton />}
       {canLoadMore && (
