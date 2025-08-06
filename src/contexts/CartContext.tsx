@@ -6,8 +6,10 @@ import {
   useState,
   useEffect,
   ReactNode,
+  useCallback,
 } from "react";
 import { Game } from "@/types/game";
+import { useLocalStorageSync } from "@/hooks/useLocalStorageSync";
 
 type CartContextType = {
   cartItems: Game[];
@@ -32,6 +34,15 @@ const CART_STORAGE_KEY = "game-cart";
 export function CartProvider({ children }: CartProviderProps) {
   const [cartItems, setCartItems] = useState<Game[]>([]);
   const [isLoaded, setIsLoaded] = useState(false);
+
+  const handleSync = useCallback((updatedCart: Game[]) => {
+    setCartItems(updatedCart);
+  }, []);
+
+  useLocalStorageSync<Game[]>({
+    storageKey: CART_STORAGE_KEY,
+    onSync: handleSync,
+  });
 
   useEffect(() => {
     const savedCart = localStorage.getItem(CART_STORAGE_KEY);

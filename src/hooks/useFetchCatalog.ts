@@ -19,6 +19,7 @@ export function useFetchCatalog(initialData: ApiResponse, genre?: string) {
       setGames((prev) => [...prev, ...data.games]);
       setCurrentPage(nextPage);
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.error("Error loading more games:", error);
     } finally {
       setLoading(false);
