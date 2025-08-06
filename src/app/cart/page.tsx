@@ -2,7 +2,6 @@ import MainContainer from "@/components/layout/MainContainer";
 import LeftArrowIcon from "@/components/icons/LeftArrowIcon";
 import Link from "next/link";
 import type { Metadata } from "next";
-import ItemCounts from "@/components/features/cart/ItemCounts";
 import Cart from "@/components/features/cart/Cart";
 
 export const metadata: Metadata = {
@@ -35,7 +34,6 @@ export default function CartPage() {
       <h1 className="text-2xl md:text-4xl font-bold text-gray-medium mb-3">
         Your Cart
       </h1>
-      <ItemCounts />
       <Cart />
     </MainContainer>
   );

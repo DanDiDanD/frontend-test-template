@@ -14,14 +14,14 @@ export default function CartGameList() {
 
   if (cartItems.length === 0) {
     return (
-      <div className="text-center py-12">
-        <p className="text-lg text-gray-medium">Your cart is empty</p>
+      <div className="w-full flex justify-center py-16">
+        <h3 className="text-xl text-gray-medium">Your cart is empty</h3>
       </div>
     );
   }
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="w-full md:w-4/7 flex flex-col gap-4">
       {cartItems.map((game) => (
         <CartGame key={game.id} game={game} />
       ))}

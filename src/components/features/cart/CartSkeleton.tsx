@@ -18,31 +18,34 @@ type OrderSummaryProps = {
 
 function OrderSummary({ itemCount = 3 }: OrderSummaryProps) {
   return (
-    <>
+    <div className="w-full md:w-3/7">
       <div
-        className="space-y-3"
+        className="rounded-lg !px-4 md:!px-6 mb-10 md:mb-8 bg-white border border-gray-light"
         role="status"
         aria-label="Loading order summary"
       >
-        {Array.from({ length: itemCount }).map((_, index) => (
-          <div key={index} className="flex justify-between">
-            <div className="h-6 w-32 animate-pulse bg-gray-200 rounded" />
-            <div className="h-6 w-16 animate-pulse bg-gray-200 rounded" />
+        <div className="space-y-3 pb-6 md:pb-8 pt-4 md:pt-6">
+          <div className="h-6 w-32 animate-pulse bg-gray-200 rounded" />
+          <div className="h-6 w-20 animate-pulse bg-gray-200 rounded" />
+        </div>
+        <div className="flex flex-col py-5">
+          <div className="space-y-3 pb-6 border-b border-gray-light">
+            {Array.from({ length: itemCount }).map((_, index) => (
+              <div key={index} className="flex justify-between">
+                <div className="h-6 w-32 animate-pulse bg-gray-200 rounded" />
+                <div className="h-6 w-16 animate-pulse bg-gray-200 rounded" />
+              </div>
+            ))}
           </div>
-        ))}
-        <span className="sr-only">Loading order items...</span>
+          <div className="flex justify-between pt-6">
+            <div className="h-6 w-24 animate-pulse bg-gray-200 rounded" />
+            <div className="h-6 w-20 animate-pulse bg-gray-200 rounded" />
+          </div>
+        </div>
+        <span className="sr-only">Loading order summary...</span>
       </div>
-      <div className="border-b border-gray-light my-6" />
-      <div
-        className="flex justify-between"
-        role="status"
-        aria-label="Loading order total"
-      >
-        <div className="h-6 w-24 animate-pulse bg-gray-200 rounded" />
-        <div className="h-6 w-20 animate-pulse bg-gray-200 rounded" />
-        <span className="sr-only">Loading order total...</span>
-      </div>
-    </>
+      <div className="h-12 w-full animate-pulse bg-gray-200 rounded" />
+    </div>
   );
 }
 
@@ -110,7 +113,7 @@ function CartGame() {
 function CartGameList({ itemCount = 3 }: { itemCount?: number }) {
   return (
     <div
-      className="flex flex-col gap-4"
+      className="w-full md:w-4/7 flex flex-col gap-4"
       role="status"
       aria-label="Loading cart items"
     >
