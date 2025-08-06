@@ -8,7 +8,12 @@ import Cart from "@/components/features/cart/Cart";
 export const metadata: Metadata = {
   title: "Shopping Cart | Apply Digital Test",
   description:
-    "Your game shopping cart - Review and manage your selected games",
+    "Review and manage your selected games in your shopping cart. Add or remove games before checkout.",
+  openGraph: {
+    title: "Shopping Cart | Apply Digital Test",
+    description: "Review and manage your selected games in your shopping cart.",
+    type: "website",
+  },
 };
 
 export default function CartPage() {
@@ -24,7 +29,7 @@ export default function CartPage() {
           aria-label="Go back to games catalog"
         >
           <LeftArrowIcon aria-hidden="true" />
-          Back to Catalog
+          <span>Back to Catalog</span>
         </Link>
       </nav>
       <h1 className="text-2xl md:text-4xl font-bold text-gray-medium mb-3">
