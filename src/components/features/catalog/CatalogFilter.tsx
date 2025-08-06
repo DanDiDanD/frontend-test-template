@@ -9,7 +9,7 @@ type GameFilterProps = {
 
 const DEFAULT_OPTION = { value: "", label: "All" };
 
-export default function GameFilter({ availableFilters }: GameFilterProps) {
+export default function CatalogFilter({ availableFilters }: GameFilterProps) {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace, refresh } = useRouter();

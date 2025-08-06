@@ -7,7 +7,7 @@ import Button from "@/components/ui/Button";
 import GameSkeleton from "./GameSkeleton";
 import LoadingAnnouncer from "@/components/ui/LoadingAnnouncer";
 import { useSearchParams } from "next/navigation";
-import GameFilter from "./GameFilter";
+import CatalogFilter from "./CatalogFilter";
 
 type GamesListProps = {
   initialData: ApiResponse;
@@ -29,7 +29,7 @@ export default function CatalogContent({ initialData }: GamesListProps) {
         loadingMessage="Loading more games..."
         completedMessage={`${games.length} games loaded`}
       />
-      <GameFilter availableFilters={initialData.availableFilters} />
+      <CatalogFilter availableFilters={initialData.availableFilters} />
       <GameGrid games={games} />
       {loading && <GameSkeleton />}
       {canLoadMore && (
