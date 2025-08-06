@@ -1,10 +1,7 @@
-"use client";
-
-import React from "react";
 import { Game } from "@/types/game";
 import Card from "@/components/ui/Card";
-import CloseIcon from "@/components/icons/CloseIcon";
 import Image from "next/image";
+import RemoveCartGameButton from "./RemoveCartGameButton";
 
 type CartItemProps = {
   game: Game;
@@ -27,8 +24,8 @@ export default function CartGame({ game }: CartItemProps) {
             sizes="(max-width: 768px) 259px, 128px"
           />
         </div>
-        <div className="text-primary flex-shrink-0">
-          <CloseIcon />
+        <div className="flex-shrink-0">
+          <RemoveCartGameButton game={game} />
         </div>
       </div>
       <div className="flex flex-col flex-grow">
@@ -56,7 +53,7 @@ export default function CartGame({ game }: CartItemProps) {
 
         <div className="text-right">
           <span className="text-lg font-bold text-gray-medium leading-5 pt-5">
-            ${game.price}
+            ${game.price.toFixed(0)}
           </span>
         </div>
       </div>
