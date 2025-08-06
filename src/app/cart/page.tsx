@@ -27,7 +27,7 @@ export default function CartPage() {
           Back to Catalog
         </Link>
       </nav>
-      <h1 className="text-xl md:text-4xl font-bold text-gray-medium mb-3">
+      <h1 className="text-2xl md:text-4xl font-bold text-gray-medium mb-3">
         Your Cart
       </h1>
       <ItemCounts />

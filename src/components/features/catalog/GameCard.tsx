@@ -32,7 +32,7 @@ export default function GameCard({ game }: GameCardProps) {
       role="article"
       aria-labelledby={`game-${game.id}-title`}
     >
-      <div className="aspect-[6/5] md:aspect-[4/3] relative mb-6">
+      <div className="aspect-[6/5] md:aspect-[4/3] relative mb-5 md:mb-6">
         <Image
           src={game.image}
           alt={`${game.name} game cover art`}
