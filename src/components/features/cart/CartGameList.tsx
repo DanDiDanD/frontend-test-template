@@ -3,9 +3,14 @@
 import React from "react";
 import { useCart } from "@/contexts/CartContext";
 import CartGame from "./CartGame";
+import CartSkeleton from "./CartSkeleton";
 
 export default function CartGameList() {
-  const { cartItems } = useCart();
+  const { cartItems, isLoaded } = useCart();
+
+  if (!isLoaded) {
+    return <CartSkeleton.CartGameList />;
+  }
 
   if (cartItems.length === 0) {
     return (
