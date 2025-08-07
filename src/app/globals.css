@@ -11,4 +11,8 @@
     background-size: theme("spacing.6");
     padding-right: theme("spacing.14");
   }
+
+  .separator {
+    @apply border-t border-gray-200 left-0 absolute w-full;
+  }
 }

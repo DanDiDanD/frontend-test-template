@@ -21,7 +21,7 @@ export default function CatalogContent({ initialData }: GamesListProps) {
   );
 
   return (
-    <>
+    <section className="pt-8 md:pt-12">
       <LoadingAnnouncer
         isLoading={loading}
         loadingMessage="Loading more games..."
@@ -33,6 +33,6 @@ export default function CatalogContent({ initialData }: GamesListProps) {
           SEE MORE
         </Button>
       )}
-    </>
+    </section>
   );
 }

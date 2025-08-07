@@ -12,6 +12,7 @@ export default async function Catalog({ genre }: CatalogProps) {
   return (
     <>
       <CatalogFilter availableFilters={initialData.availableFilters} />
+      <div className="separator"></div>
       <CatalogContent key={genre} initialData={initialData} />
     </>
   );

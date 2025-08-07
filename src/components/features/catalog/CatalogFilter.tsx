@@ -40,7 +40,7 @@ export default function CatalogFilter({ availableFilters }: GameFilterProps) {
   ];
 
   return (
-    <div className="flex flex-col md:flex-row md:justify-end gap-4 mb-6">
+    <div className="flex flex-col md:flex-row md:justify-end gap-4 mb-8 md:mb-12">
       <div className="flex items-center">
         <label
           htmlFor="genre-filter"
