@@ -42,7 +42,7 @@ export default function Home({ searchParams }: HomeProps) {
       <h1 className="text-2xl md:text-4xl font-bold mb-8 text-gray-medium">
         TOP SELLERS
       </h1>
-      <Suspense fallback={<CatalogSkeleton />}>
+      <Suspense key={genre} fallback={<CatalogSkeleton genre={genre} />}>
         <Catalog genre={genre} />
       </Suspense>
     </MainContainer>
