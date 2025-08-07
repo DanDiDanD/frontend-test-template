@@ -1,5 +1,6 @@
 "use client";
 
+import { useTransition, useEffect, useRef } from "react";
 import Select from "@/components/ui/Select";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
@@ -10,25 +11,38 @@ type GameFilterProps = {
 const DEFAULT_OPTION = { value: "", label: "All" };
 
 export default function CatalogFilter({ availableFilters }: GameFilterProps) {
+  const [isPending, startTransition] = useTransition();
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace, refresh } = useRouter();
 
+  const selectRef = useRef<HTMLSelectElement>(null);
+
+  useEffect(() => {
+    const currentGenre = searchParams.get("genre") || "";
+    if (selectRef.current) {
+      selectRef.current.value = currentGenre;
+    }
+  }, [searchParams]);
+
   const handleGenreChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const genre = event.target.value;
-    const params = new URLSearchParams(searchParams.toString());
 
-    if (genre) {
-      params.set("genre", genre);
-    } else {
-      params.delete("genre");
-    }
+    startTransition(() => {
+      const params = new URLSearchParams(searchParams.toString());
 
-    replace(`${pathname}?${params.toString()}`);
+      if (genre) {
+        params.set("genre", genre);
+      } else {
+        params.delete("genre");
+      }
 
-    if (!genre) {
-      refresh();
-    }
+      replace(`${pathname}?${params.toString()}`);
+
+      if (!genre) {
+        refresh();
+      }
+    });
   };
 
   const genreOptions = [
@@ -59,12 +73,14 @@ export default function CatalogFilter({ availableFilters }: GameFilterProps) {
           |
         </div>
         <Select
+          ref={selectRef}
           id="genre-filter"
           options={genreOptions}
           variant="ghost"
           onChange={handleGenreChange}
-          value={searchParams.get("genre") || ""}
+          defaultValue={searchParams.get("genre") || ""}
           color="gray-medium"
+          loading={isPending}
         />
       </div>
     </div>

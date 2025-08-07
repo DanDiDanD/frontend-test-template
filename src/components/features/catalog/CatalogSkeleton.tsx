@@ -11,6 +11,7 @@ function Filter({ genre }: { genre?: string }) {
           variant="ghost"
           color="gray-medium"
           disabled
+          loading
         />
       </div>
     </div>
