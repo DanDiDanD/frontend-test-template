@@ -1,9 +1,11 @@
 "use client";
 
-import React from "react";
+import { memo } from "react";
 import { useCart } from "@/contexts/CartContext";
 import CartGame from "./CartGame";
 import CartSkeleton from "./CartSkeleton";
+
+const MemoCartGame = memo(CartGame);
 
 export default function CartGameList() {
   const { cartItems, isLoaded } = useCart();
@@ -26,7 +28,7 @@ export default function CartGameList() {
       aria-label="Cart items"
     >
       {cartItems.map((game) => (
-        <CartGame key={game.id} game={game} />
+        <MemoCartGame key={game.id} game={game} />
       ))}
     </section>
   );
