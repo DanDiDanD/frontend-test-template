@@ -9,9 +9,14 @@ export const areaNormal = localFont({
       style: "normal",
     },
   ],
+  display: "swap",
+  preload: true,
 });
 
 export const archivo = Archivo({
   subsets: ["latin"],
   weight: ["400", "500", "700"],
+  display: "swap",
+  preload: true,
+  fallback: ["system-ui", "arial"],
 });
