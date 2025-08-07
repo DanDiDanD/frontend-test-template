@@ -5,7 +5,7 @@ function Filter() {
     <div className="flex flex-col md:flex-row md:justify-end gap-4 mb-6">
       <div className="flex items-center">
         <label className="text-xl font-bold text-gray-medium">Genre</label>
-        <div className="mx-6 text-gray-medium">|</div>
+        <div className="mx-6 text-gray-medium text-lg font-light">|</div>
         <Select
           options={[{ value: "", label: "Loading..." }]}
           variant="ghost"

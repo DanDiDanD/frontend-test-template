@@ -40,7 +40,11 @@ export default function CatalogFilter({ availableFilters }: GameFilterProps) {
   ];
 
   return (
-    <div className="flex flex-col md:flex-row md:justify-end gap-4 mb-8 md:mb-12">
+    <div
+      role="search"
+      aria-label="Game catalog filters"
+      className="flex flex-col md:flex-row md:justify-end gap-4 mb-8 md:mb-12"
+    >
       <div className="flex items-center">
         <label
           htmlFor="genre-filter"
@@ -48,7 +52,10 @@ export default function CatalogFilter({ availableFilters }: GameFilterProps) {
         >
           Genre
         </label>
-        <div className="mx-6 text-gray-medium" aria-hidden="true">
+        <div
+          className="mx-6 text-gray-medium text-lg font-light"
+          aria-hidden="true"
+        >
           |
         </div>
         <Select
