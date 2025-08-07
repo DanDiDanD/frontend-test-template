@@ -6,9 +6,10 @@ import { useCart } from "@/contexts/CartContext";
 
 type GameCardProps = {
   game: Game;
+  index?: number;
 };
 
-export default function GameCard({ game }: GameCardProps) {
+export default function GameCard({ game, index = 0 }: GameCardProps) {
   const { addToCart, removeFromCart, isInCart, isLoaded } = useCart();
   const inCart = isInCart(game.id);
 
@@ -39,6 +40,8 @@ export default function GameCard({ game }: GameCardProps) {
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className="object-cover rounded-t-lg"
+          loading={index < 6 ? "eager" : "lazy"}
+          priority={index < 3}
         />
       </div>
 

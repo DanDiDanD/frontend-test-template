@@ -23,6 +23,7 @@ export default function CartGame({ game }: CartItemProps) {
               fill
               className="object-cover"
               sizes="259px"
+              loading="lazy"
             />
           </div>
           <div className="flex-shrink-0">
@@ -71,6 +72,7 @@ export default function CartGame({ game }: CartItemProps) {
             fill
             className="object-cover"
             sizes="(min-width: 1024px) 256px, 192px"
+            loading="lazy"
           />
         </div>
 
